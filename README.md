@@ -64,7 +64,7 @@ Training completed in ~2.5 hours on free-tier Google Colab GPU.
 Epoch	Train Loss	Test Loss
 1	7.08	7.08
 6	3.76	4.56
-12 (best)	2.67	4.22
+15 (best)	2.67	4.22
 🔹 Observations
 
 Performs very well on high-frequency words
@@ -83,16 +83,24 @@ Greedy decoding used for text generation
 Supports CPU & CUDA devices
 
 🗂️ Project Structure
-project/
-├── model.py
-├── train.py
-├── inference.py
-├── config.json
-├── transformer_model_12.pt
-├── spm_en.model
-├── spm_ta.model
-├── README.md
-└── utils/
+project
+
+model.py
+
+train.py
+
+inference.py
+ 
+config.json
+
+transformer_model_15.pt
+
+spm_en.model
+
+ spm_ta.model
+ 
+ README.md
+
 
 ✨ Features
 
@@ -119,3 +127,4 @@ Fine-tune multilingual models (mBART, MarianMT)
 Deploy model to Hugging Face Spaces
 
 Add BLEU / chrF evaluation metrics
+
