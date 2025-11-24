@@ -151,7 +151,7 @@ This project demonstrates:
 * Ability to evaluate and improve model performance
 * Strong foundation in NLP and Deep Learning
 
-It aligns closely with IBM Research focus areas such as NLP, scalable AI systems, and model optimization, making it a strong portfolio project for AI research roles.
+
 
 ---
 
@@ -167,5 +167,5 @@ python inference.py --text "The project supports rural development."
 
 ---
 
-⭐ This project reflects a practical, research-focused exploration of state-of-the-art NLP architecture and demonstrates readiness for high-impact AI research internships.
+
 
