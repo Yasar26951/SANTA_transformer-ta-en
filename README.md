@@ -1,137 +1,170 @@
-﻿# SANTA_transformer-ta-en
+# 🚀 SANTA_transformer-ta-en
 
-the model state are in below link download it and load in inference.py  place near inference.py
-https://drive.google.com/file/d/1uY4bGDsPm5oX2mjghsFV9gHqsYUeAzTw/view?usp=sharing
+## English → Tamil Neural Machine Translation
 
-📘 English → Tamil Neural Machine Translation
-(Custom Transformer Built From Scratch in PyTorch)
+**Custom Transformer Built From Scratch in PyTorch**
 
-This project implements a Transformer-based Neural Machine Translation (NMT) model from scratch to translate English sentences into Tamil using PyTorch.
+---
 
-🚀 Project Overview
+## 📘 Project Description
 
-Built the entire Transformer architecture from scratch (no HuggingFace or seq2seq shortcuts)
+This project implements a Transformer-based Neural Machine Translation (NMT) system from scratch to translate English sentences into Tamil. The entire architecture is manually built in PyTorch without relying on high-level frameworks such as HuggingFace Transformers or pre-built seq2seq libraries, enabling deep control and understanding of every component.
 
-Implemented Multi-Head Attention, Positional Encoding, Masking, and FeedForward layers manually
+The goal of this project is to explore the effectiveness and limitations of the original Transformer architecture when trained on a relatively small real-world parallel corpus.
 
-Trained on 30k English–Tamil sentence pairs from the HuggingFace NLPC-UOM dataset
+---
 
-Used SentencePiece tokenizer (8,000 vocab) for subword-level encoding
+## 🔗 Pretrained Model
 
-Trained in ~2.5 hours on Google Colab Free GPU
+Download the trained model weights and place them in the same directory as `inference.py`:
 
-Shows strong performance on frequent corpus words despite the small dataset
+Model Link:
+SANTA_transformer-ta-en
+[https://drive.google.com/file/d/1uY4bGDsPm5oX2mjghsFV9gHqsYUeAzTw/view?usp=sharing](https://drive.google.com/file/d/1uY4bGDsPm5oX2mjghsFV9gHqsYUeAzTw/view?usp=sharing)
 
-📊 Dataset
+---
 
-Dataset: NLPC-UOM/English-Tamil-Parallel-Corpus
+## 🚀 Project Overview
 
-Size: ~30,000 sentence pairs
+* Built the entire Transformer architecture from scratch
+* Implemented Multi-Head Attention, Positional Encoding, Masking, and FeedForward layers manually
+* Trained on 30k English–Tamil sentence pairs
+* Used SentencePiece tokenizer (8,000 vocab) for subword-level encoding
+* Trained in ~2.5 hours on Google Colab Free GPU
+* Demonstrates strong performance on frequent corpus words despite limited data
 
-Languages: English → Tamil
+---
 
-Tokenizer: SentencePiece (vocab size = 8000)
+## 📊 Dataset
 
-Special Tokens: <pad>, <bos>, <eos>
+* Dataset: NLPC-UOM / English-Tamil-Parallel-Corpus
+* Size: ~30,000 sentence pairs
+* Languages: English → Tamil
+* Tokenizer: SentencePiece
+* Vocabulary Size: 8000
+* Special Tokens: <pad>, <bos>, <eos>
 
-🏗️ Model Architecture
+---
 
-Encoder: 6 layers
+## 🏗️ Model Architecture
 
-Decoder: 6 layers
+| Component             | Value                            |
+| --------------------- | -------------------------------- |
+| Encoder Layers        | 6                                |
+| Decoder Layers        | 6                                |
+| Embedding Dimension   | 512                              |
+| Feedforward Dimension | 2048                             |
+| Attention Heads       | 8                                |
+| Dropout               | 0.15                             |
+| Positional Encoding   | Sinusoidal                       |
+| Loss Function         | CrossEntropy (ignore PAD)        |
+| Optimizer             | Adam (β1=0.9, β2=0.98, eps=1e-9) |
+| Scheduler             | Noam (warmup = 10,000 steps)     |
 
-Embedding Dimension: 512
+---
 
-Feedforward Dimension: 2048
+## 📈 Training Results
 
-Attention Heads: 8
+Training completed in approximately 2.5 hours on Google Colab Free GPU.
 
-Dropout: 0.15
+### Loss Summary
 
-Positional Encoding: Sinusoidal
+| Epoch     | Train Loss | Validation Loss |
+| --------- | ---------- | --------------- |
+| 1         | 7.08       | 7.08            |
+| 6         | 3.76       | 4.56            |
+| 15 (Best) | 2.67       | 4.22            |
 
-Loss: CrossEntropy Loss (ignore PAD)
+### Observations
 
-Optimizer: Adam (β1 = 0.9, β2 = 0.98, eps = 1e-9)
+* Strong performance on high-frequency words
+* Degradation on rare or unseen tokens due to limited dataset size
+* Highlights both the power and data dependency of Transformer architectures
 
-Learning Rate Scheduler: Noam Schedule (warmup = 10,000 steps)
+---
 
-📈 Training Results
+## 🧪 Inference Example
 
-Training completed in ~2.5 hours on free-tier Google Colab GPU.
+**Input:**
+The project supports rural development.
 
-🔹 Loss Summary
-Epoch	Train Loss	Test Loss
-1	7.08	7.08
-6	3.76	4.56
-15 (best)	2.67	4.22
-🔹 Observations
+**Output:**
+இத்திட்டம் கிராமப்புற மேம்பாட்டிற்கு ஆதரவாக செயல்படுகிறது.
 
-Performs very well on high-frequency words
+* Decoding Strategy: Greedy Decoding
+* Supports both CPU and CUDA devices
 
-Struggles on rare/unseen words due to small dataset
+---
 
-Demonstrates the power and efficiency of the Transformer architecture
+## 🗂️ Project Structure
 
-🧪 Inference Example
-Input:  "The project supports rural development."
-Output: "இத்திட்டம் கிராமப்புற மேம்பாட்டிற்கு ஆதரவாக செயல்படுகிறது."
+```
+project/
+│
+├── model.py
+├── inference.py
+├── config.json
+├── transformer_model_15.pt
+├── spm_en.model
+├── spm_ta.model
+├── README.md
+```
 
+---
 
-Greedy decoding used for text generation
+## ✨ Key Features
 
-Supports CPU & CUDA devices
+* Transformer Encoder–Decoder fully implemented manually
+* Sinusoidal positional embeddings
+* Padding mask + Subsequent mask support
+* SentencePiece tokenization
+* Noam learning rate scheduler
+* Modular and extensible PyTorch codebase
+* GPU acceleration (CUDA)
 
-🗂️ Project Structure
-project
+---
 
-model.py
-
-train.py
-
-inference.py
- 
-config.json
-
-transformer_model_15.pt
-
-spm_en.model
-
- spm_ta.model
- 
- README.md
-
-
-✨ Features
-
-Transformer Encoder–Decoder fully implemented manually
-
-Sinusoidal positional embeddings
-
-Padding mask + Subsequent mask support
-
-Tokenization with SentencePiece
-
-Noam learning rate scheduler
-
-Modular and extensible PyTorch codebase
-
-📌 Future Improvements
-
-Add Beam Search decoding
-
-Train on larger parallel corpora
-
-Fine-tune multilingual models (mBART, MarianMT)
-
-Deploy model to Hugging Face Spaces
-
-Add BLEU / chrF evaluation metrics
-
-
-
-# 🔍 Current Observation & Ongoing Work
+## 🔍 Current Observation & Ongoing Work
 
 During training on a ~30k sentence parallel corpus, the 6-layer, 8-head Transformer model exhibited signs of overfitting, where training loss continued to decrease while validation performance stagnated and began to degrade, indicating partial memorization of the dataset. This suggests that the model capacity is relatively high compared to the dataset size. To address this, the model architecture and key hyperparameters are being tuned, including reducing model depth and adjusting regularization settings.
 
-Ongoing Work: The model will be retrained after the current academic examination period with optimized hyperparameters and improved regularization strategies to enhance generalization and achieve more stable performance.
+**Ongoing Work:** The model will be retrained after the current academic examination period with optimized hyperparameters and improved regularization strategies to enhance generalization and achieve more stable performance.
+
+---
+
+## 📌 Future Improvements
+
+* Implement Beam Search decoding
+* Train on larger parallel corpora
+* Fine-tune multilingual models (mBART, MarianMT)
+* Deploy the system to Hugging Face Spaces
+* Add BLEU / chrF evaluation metrics
+
+---
+
+
+
+This project demonstrates:
+
+* Deep understanding of Transformer internals
+* Research-oriented experimentation and analysis
+* Ability to evaluate and improve model performance
+* Strong foundation in NLP and Deep Learning
+
+It aligns closely with IBM Research focus areas such as NLP, scalable AI systems, and model optimization, making it a strong portfolio project for AI research roles.
+
+---
+
+## 🚀 How to Run
+
+### Inference
+
+```bash
+python inference.py --text "The project supports rural development."
+```
+
+
+
+---
+
+⭐ This project reflects a practical, research-focused exploration of state-of-the-art NLP architecture and demonstrates readiness for high-impact AI research internships.
