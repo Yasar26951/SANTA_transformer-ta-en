@@ -128,3 +128,10 @@ Deploy model to Hugging Face Spaces
 
 Add BLEU / chrF evaluation metrics
 
+
+
+# 🔍 Current Observation & Ongoing Work
+
+During training on a ~30k sentence parallel corpus, the 6-layer, 8-head Transformer model exhibited signs of overfitting, where training loss continued to decrease while validation performance stagnated and began to degrade, indicating partial memorization of the dataset. This suggests that the model capacity is relatively high compared to the dataset size. To address this, the model architecture and key hyperparameters are being tuned, including reducing model depth and adjusting regularization settings.
+
+Ongoing Work: The model will be retrained after the current academic examination period with optimized hyperparameters and improved regularization strategies to enhance generalization and achieve more stable performance.
