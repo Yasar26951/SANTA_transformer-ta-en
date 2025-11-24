@@ -55,7 +55,7 @@ SANTA_transformer-ta-en
 | Embedding Dimension   | 512                              |
 | Feedforward Dimension | 2048                             |
 | Attention Heads       | 8                                |
-| Dropout               | 0.15                             |
+| Dropout               | 0.1                              |
 | Positional Encoding   | Sinusoidal                       |
 | Loss Function         | CrossEntropy (ignore PAD)        |
 | Optimizer             | Adam (β1=0.9, β2=0.98, eps=1e-9) |
@@ -168,3 +168,4 @@ python inference.py --text "The project supports rural development."
 ---
 
 ⭐ This project reflects a practical, research-focused exploration of state-of-the-art NLP architecture and demonstrates readiness for high-impact AI research internships.
+
