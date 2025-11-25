@@ -165,7 +165,7 @@ enter -- "The project supports rural development."
 ```
 
 
-🔧 Model Configuration Changes
+#  🔧 Model Configuration Changes
 
 To reduce overfitting and computational load, the following architecture adjustments were applied:
 
@@ -177,7 +177,7 @@ Dropout	0.1	0.3
 
 These changes significantly reduced the model's capacity, aiming to improve generalization on limited hardware.
 
-📊 Training Performance (Tuned Model)
+## 📊 Training Performance (Tuned Model)
 Epoch 1  - Train Loss: 5.5684 | Test Loss: 5.4877
 Epoch 2  - Train Loss: 5.1574 | Test Loss: 5.1956
 Epoch 3  - Train Loss: 4.7667 | Test Loss: 4.9748
@@ -190,7 +190,7 @@ Epoch 9  - Train Loss: 3.0523 | Test Loss: 4.3286
 Epoch 10 - Train Loss: 2.8157 | Test Loss: 4.2771
 Epoch 11 - Train Loss: 2.6018 | Test Loss: 4.2633
 Epoch 12 - Train Loss: 2.4292 | Test Loss: 4.2146
-Observations
+## Observations
 
 Training loss decreases steadily, confirming the model learns patterns in training data.
 
@@ -212,7 +212,7 @@ Hallucinated structure not aligned with source text
 
 This confirms that reducing model size alone is not sufficient.
 
-✅ Conclusion
+## ✅ Conclusion
 
 Even after tuning the Transformer by reducing:
 
@@ -224,7 +224,7 @@ Layers to 4
 
 The model still failed to understand sentence semantics and produce accurate translations.
 
-📌 Final Verdict
+## 📌 Final Verdict
 
 The core limitation is not model capacity, but insufficient training data volume and diversity.
 
@@ -240,6 +240,7 @@ Avoid noisy or repetitive samples
 
 # Model architecture optimization cannot substitute for quality data in low-resource scenarios.
 ---
+
 
 
 
