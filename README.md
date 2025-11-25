@@ -160,12 +160,87 @@ This project demonstrates:
 ### Inference
 
 ```bash
-python inference.py --text "The project supports rural development."
+python inference.py 
+enter -- "The project supports rural development."
 ```
 
 
+🔧 Model Configuration Changes
 
+To reduce overfitting and computational load, the following architecture adjustments were applied:
+
+Parameter	Original	Tuned Model
+Layers	12	4
+Heads	8	4
+d_model	512	256
+Dropout	0.1	0.3
+
+These changes significantly reduced the model's capacity, aiming to improve generalization on limited hardware.
+
+📊 Training Performance (Tuned Model)
+Epoch 1  - Train Loss: 5.5684 | Test Loss: 5.4877
+Epoch 2  - Train Loss: 5.1574 | Test Loss: 5.1956
+Epoch 3  - Train Loss: 4.7667 | Test Loss: 4.9748
+Epoch 4  - Train Loss: 4.4015 | Test Loss: 4.7175
+Epoch 5  - Train Loss: 4.0622 | Test Loss: 4.5478
+Epoch 6  - Train Loss: 3.7683 | Test Loss: 4.4493
+Epoch 7  - Train Loss: 3.5137 | Test Loss: 4.4035
+Epoch 8  - Train Loss: 3.3007 | Test Loss: 4.3007
+Epoch 9  - Train Loss: 3.0523 | Test Loss: 4.3286
+Epoch 10 - Train Loss: 2.8157 | Test Loss: 4.2771
+Epoch 11 - Train Loss: 2.6018 | Test Loss: 4.2633
+Epoch 12 - Train Loss: 2.4292 | Test Loss: 4.2146
+Observations
+
+Training loss decreases steadily, confirming the model learns patterns in training data.
+
+Test loss stagnates around 4.2 - 4.3, showing very limited generalization.
+
+The performance gap between train and test loss continues to widen.
+
+➡️ This clearly indicates overfitting + insufficient data, not just architectural limitations.
+
+❌ Translation Quality
+
+Despite simplification, the model output shows:
+
+Repetition loops (same words repeated multiple times)
+
+Semantic collapse (loss of meaning)
+
+Hallucinated structure not aligned with source text
+
+This confirms that reducing model size alone is not sufficient.
+
+✅ Conclusion
+
+Even after tuning the Transformer by reducing:
+
+Attention heads to 4
+
+d_model to 256
+
+Layers to 4
+
+The model still failed to understand sentence semantics and produce accurate translations.
+
+📌 Final Verdict
+
+The core limitation is not model capacity, but insufficient training data volume and diversity.
+
+To achieve meaningful improvement, the only effective solution is:
+
+🚀 Increase Dataset Size
+
+Add more parallel English–Tamil sentences
+
+Ensure high-quality, clean, domain-diverse data
+
+Avoid noisy or repetitive samples
+
+# Model architecture optimization cannot substitute for quality data in low-resource scenarios.
 ---
+
 
 
 
